@@ -1,0 +1,11 @@
+{
+    "name": "easyengine/config-command",
+    "description": "Manages EasyEngine configuration",
+    "type": "ee-cli-package",
+    "homepage": "https://github.com/easyengine/config-command",
+    "license": "MIT",
+    "authors": [],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+
