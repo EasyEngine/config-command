@@ -30,7 +30,7 @@ class Config_Command extends EE_Command {
 	}
 
 	/**
-	 * Get a config value
+	 * Set a config value
 	 *
 	 * ## OPTIONS
 	 *
