@@ -1,8 +1,7 @@
 <?php
 
-use EE\Model\Site;
 use Mustangostang\Spyc;
-use \Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * Manges global EE configuration.
@@ -41,36 +40,31 @@ class Config_Command extends EE_Command {
 		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_CONF_ROOT . '/config.yml';
 		$config = Spyc::YAMLLoad( $config_file_path );
 
-		if ( ! isset( $config[$args[0]] ) ) {
-			EE::error("No config value with key '$args[0]' set");
+		if ( ! isset( $config[ $args[0] ] ) ) {
+			EE::error( "No config value with key '$args[0]' set" );
 		}
 
-		EE::log( $config[$args[0]] );
+		EE::log( $config[ $args[0] ] );
 	}
 
 	/**
-	 * Get a config value
+	 * Set a config value
 	 *
 	 * ## OPTIONS
 	 *
-	 * <config-key-value>...
-	 * : Key value pair of config to set
+	 * <key>
+	 * : Key of config to set
+	 *
+	 * <value>
+	 * : Value of config to set
 	 */
 	public function set( $args, $assoc_args ) {
 		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_CONF_ROOT . '/config.yml';
 		$config = Spyc::YAMLLoad( $config_file_path );
+		$key   = $args[0];
+		$value = $args[1];
 
-		foreach ( $args as $arg ) {
-			$key_val = explode( '=', $arg, 2 );
-
-			if ( count( $key_val ) < 2 ) {
-				EE::warning( "Cannot add $arg in config as it has no corrosponding value" );
-				continue;
-			}
-
-			list( $key, $val ) = $key_val;
-			$config[$key] = $value;
-		}
+		$config[ $key ] = $value;
 
 		$this->fs->dumpFile( $config_file_path, Spyc::YAMLDump( $config, false, false, true ) );
 	}
