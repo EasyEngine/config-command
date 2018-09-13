@@ -19,7 +19,9 @@
         },
         "bundled": true,
         "commands": [
-            "config"
+            "config",
+            "config get",
+            "config set"
         ]
     }
 }
