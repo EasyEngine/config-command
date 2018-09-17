@@ -13,19 +13,13 @@ This package implements the following commands:
 
 ### ee config
 
-Manges global EE configuration.
+Manges global EasyEngine configuration.
 
 ~~~
 ee config
 ~~~
 
-**EXAMPLES**
 
-    # Save value in config
-    $ ee config set le-mail='abc@example.com' admin-email=abcd@example1.com
-
-    # Get value from config
-    $ ee config get le-mail
 
 
 
@@ -41,6 +35,11 @@ ee config get <config-key>
 
 	<config-key>
 		Name of config value to get
+
+**EXAMPLES**
+
+    # Get value from config
+    $ ee config get le-mail
 
 
 
@@ -59,6 +58,11 @@ ee config set <key> <value>
 
 	<value>
 		Value of config to set
+
+**EXAMPLES**
+
+    # Save value in config
+    $ ee config set le-mail abc@example.com
 
 ## Contributing
 
