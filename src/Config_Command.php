@@ -35,7 +35,7 @@ class Config_Command extends EE_Command {
 	 *
 	 */
 	public function get( $args, $assoc_args ) {
-		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_CONF_ROOT . '/config.yml';
+		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_ROOT_DIR . '/config/config.yml';
 		$config = Spyc::YAMLLoad( $config_file_path );
 
 		if ( ! isset( $config[ $args[0] ] ) ) {
@@ -63,7 +63,7 @@ class Config_Command extends EE_Command {
 	 *
 	 */
 	public function set( $args, $assoc_args ) {
-		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_CONF_ROOT . '/config.yml';
+		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_ROOT_DIR . '/config/config.yml';
 		$config = Spyc::YAMLLoad( $config_file_path );
 		$key   = $args[0];
 		$value = $args[1];
