@@ -6,14 +6,6 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Manges global EE configuration.
  *
- * ## EXAMPLES
- *
- *     # Save value in config
- *     $ ee config set le-mail='abc@example.com' admin-email=abcd@example1.com
- *
- *     # Get value from config
- *     $ ee config get le-mail
- *
  * @package ee-cli
  */
 class Config_Command extends EE_Command {
@@ -35,9 +27,15 @@ class Config_Command extends EE_Command {
 	 *
 	 * <config-key>
 	 * : Name of config value to get
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     # Get value from config
+	 *     $ ee config get le-mail
+	 *
 	 */
 	public function get( $args, $assoc_args ) {
-		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_CONF_ROOT . '/config.yml';
+		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_ROOT_DIR . '/config/config.yml';
 		$config = Spyc::YAMLLoad( $config_file_path );
 
 		if ( ! isset( $config[ $args[0] ] ) ) {
@@ -57,9 +55,15 @@ class Config_Command extends EE_Command {
 	 *
 	 * <value>
 	 * : Value of config to set
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     # Save value in config
+	 *     $ ee config set le-mail abc@example.com
+	 *
 	 */
 	public function set( $args, $assoc_args ) {
-		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_CONF_ROOT . '/config.yml';
+		$config_file_path = getenv( 'EE_CONFIG_PATH' ) ? getenv( 'EE_CONFIG_PATH' ) : EE_ROOT_DIR . '/config/config.yml';
 		$config = Spyc::YAMLLoad( $config_file_path );
 		$key   = $args[0];
 		$value = $args[1];
