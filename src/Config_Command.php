@@ -4,7 +4,7 @@ use Mustangostang\Spyc;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
- * Manages global EE configuration.
+ * Manges global EasyEngine configuration.
  *
  * @package ee-cli
  */

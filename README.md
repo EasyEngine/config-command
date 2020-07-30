@@ -13,15 +13,11 @@ This package implements the following commands:
 
 ### ee config
 
-Manages global EE configuration.
+Manges global EasyEngine configuration.
 
 ~~~
 ee config
 ~~~
-
-
-
-
 
 ### ee config set
 
