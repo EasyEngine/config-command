@@ -19,30 +19,6 @@ Manges global EasyEngine configuration.
 ee config
 ~~~
 
-
-
-
-
-### ee config get
-
-Set a config value
-
-~~~
-ee config get <config-key>
-~~~
-
-**OPTIONS**
-
-	<config-key>
-		Name of config value to get
-
-**EXAMPLES**
-
-    # Get value from config
-    $ ee config get le-mail
-
-
-
 ### ee config set
 
 Set a config value
@@ -64,12 +40,31 @@ ee config set <key> <value>
     # Save value in config
     $ ee config set le-mail abc@example.com
 
+
+
+### ee config get
+
+Set a config value
+
+~~~
+ee config get <config-key>
+~~~
+
+**OPTIONS**
+
+	<config-key>
+		Name of config value to get
+
+**EXAMPLES**
+
+    # Get value from config
+    $ ee config get le-mail
+
 ## Contributing
 
 We appreciate you taking the initiative to contribute to this project.
 
 Contributing isn’t limited to just code. We encourage you to contribute in the way that best fits your abilities, by writing tutorials, giving a demo at your local meetup, helping other users with their support questions, or revising our documentation.
-
 
 ### Reporting a bug
 

@@ -20,8 +20,8 @@
         "bundled": true,
         "commands": [
             "config",
-            "config get",
-            "config set"
+            "config set",
+            "config get"
         ]
     }
 }
