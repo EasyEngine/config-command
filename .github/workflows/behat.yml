@@ -66,13 +66,18 @@ jobs:
         # Run composer install for master else update.
         if [[ "$GITHUB_REF" = "refs/heads/master" ]]; then
             composer install --prefer-dist --no-progress --no-interaction
+            composer require myclabs/deep-copy --no-interaction
         else
             sed -i 's/\(easyengine\/.*\):\ \".*\"/\1:\ \"dev-develop\"/' composer.json
             composer update --prefer-dist --no-progress --no-interaction
+            composer require myclabs/deep-copy --no-interaction
         fi
         php -dphar.readonly=0 utils/make-phar.php easyengine.phar
         sudo php easyengine.phar cli info
         sudo cp easyengine.phar /usr/local/bin/ee
+      env:
+        COMPOSER_ALLOW_SUPERUSER: 1
+
 
     - name: Test
       shell: 'script -q -e -c "bash {0}"'
