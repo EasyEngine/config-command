@@ -1,7 +1,6 @@
 Feature: EasyEngine Configuration
 
   Scenario: Install EasyEngine and set/get configuration
-    Given I have installed EasyEngine if not install it
     When I run "ee config set test_key test_value"
     Then STDOUT should not return anything
     When I run "ee config get test_key"

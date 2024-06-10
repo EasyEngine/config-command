@@ -8,20 +8,6 @@ class FeatureContext implements Context, SnippetAcceptingContext
     private $command_output;
 
     /**
-     * @Given I have installed EasyEngine if not install it
-     */
-    public function iHaveInstalledEasyengineIfNotInstallIt()
-    {
-        if (!file_exists('/usr/local/bin/ee')) {
-            $install_command = 'wget -qO ee https://rt.cx/ee4 && sudo bash ee && sudo rm ee';
-            $install_output = shell_exec($install_command);
-            if (!file_exists('/usr/local/bin/ee')) {
-                throw new Exception("EasyEngine could not be installed.");
-            }
-        }
-    }
-
-    /**
      * @When I run "ee config set test_key test_value"
      */
     public function iRunSetTestKeyCommand()
