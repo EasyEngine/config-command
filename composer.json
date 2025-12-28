@@ -25,5 +25,8 @@
             "config unset",
             "config list"
         ]
+    },
+    "require-dev": {
+        "behat/behat": "^3.14"
     }
 }
