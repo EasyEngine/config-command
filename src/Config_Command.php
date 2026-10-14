@@ -42,7 +42,8 @@ class Config_Command extends EE_Command {
 			EE::error( "No config value with key '$args[0]' set" );
 		}
 
-		EE::log( $config[ $args[0] ] );
+		// Printed for the user only: config values can be secrets and must not reach the log file.
+		EE::line( $config[ $args[0] ] );
 	}
 
 	/**
@@ -137,7 +138,7 @@ class Config_Command extends EE_Command {
 
 		if ( 'text' === $format ) {
 			foreach ( $config as $key => $value ) {
-				\EE::log( $key . ': ' . $value );
+				\EE::line( $key . ': ' . $value );
 			}
 		} else {
 			$result = array_map(
